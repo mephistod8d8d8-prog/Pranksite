@@ -1,50 +1,31 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Security Scan</title>
-
-<style>
-body{
-background:black;
-color:red;
-font-family:Arial;
-text-align:center;
-margin-top:120px;
-}
-h1{
-font-size:40px;
-}
-</style>
-</head>
-
 <body>
 
 <h1>⚠ SECURITY BREACH DETECTED ⚠</h1>
-<p>Scanning your device...</p>
+<p>Tap below to start security scan</p>
+
+<button onclick="startScan()" style="padding:15px;font-size:20px;">Start Scan</button>
 
 <script>
+function startScan(){
 
-// vibration (if supported)
-if (navigator.vibrate) {
-  navigator.vibrate([500,300,500,300,800]);
+  // vibration
+  if (navigator.vibrate){
+    navigator.vibrate([500,300,500,300,800]);
+  }
+
+  // fake alerts
+  setTimeout(function(){
+    alert("⚠ Device locked due to suspicious activity!");
+  },1000);
+
+  setTimeout(function(){
+    alert("Uploading personal data...");
+  },4000);
+
+  setTimeout(function(){
+    alert("😂 Relax! Prank by Mathan.");
+  },8000);
 }
-
-// fake lock screen message
-setTimeout(function(){
-alert("⚠ Your device is locked\nSuspicious activity detected!");
-},2000);
-
-// fake data upload message
-setTimeout(function(){
-alert("Uploading personal data...");
-},5000);
-
-// reveal prank
-setTimeout(function(){
-alert("😂 Relax! Just a prank by Mathan.");
-},10000);
-
 </script>
 
 </body>
-</html>
