@@ -1,19 +1,44 @@
-<body>
+<!DOCTYPE html><html>
+<head>
+<title>Security Scan</title><style>
+body{
+  background:black;
+  color:red;
+  font-family:Arial;
+  text-align:center;
+  margin-top:120px;
+}
 
-<h1>⚠ SECURITY BREACH DETECTED ⚠</h1>
-<p>Tap below to start security scan</p>
+h1{
+  font-size:40px;
+}
 
-<button onclick="startScan()" style="padding:15px;font-size:20px;">Start Scan</button>
+button{
+  padding:15px;
+  font-size:20px;
+  margin-top:30px;
+  background:red;
+  color:white;
+  border:none;
+  border-radius:8px;
+}
+</style></head><body><h1>⚠ SECURITY BREACH DETECTED ⚠</h1>
+<p>Tap below to start security scan</p><button onclick="startPrank()">Start Security Scan</button>
+
+<audio id="alarm" src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg"></audio>
 
 <script>
-function startScan(){
 
-  // vibration
-  if (navigator.vibrate){
-    navigator.vibrate([500,300,500,300,800]);
+function startPrank(){
+
+  // play alarm sound
+  document.getElementById("alarm").play();
+
+  // vibration (if supported)
+  if(navigator.vibrate){
+    navigator.vibrate([300,200,300,200,600]);
   }
 
-  // fake alerts
   setTimeout(function(){
     alert("⚠ Device locked due to suspicious activity!");
   },1000);
@@ -23,9 +48,14 @@ function startScan(){
   },4000);
 
   setTimeout(function(){
-    alert("😂 Relax! Prank by Mathan.");
-  },8000);
-}
-</script>
+    alert("📤 Sending photos to server...");
+  },6000);
 
-</body>
+  setTimeout(function(){
+    alert("😂 Relax! Just a prank by Mathan.");
+  },9000);
+
+}
+
+</script></body>
+</html>
